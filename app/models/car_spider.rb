@@ -49,7 +49,7 @@ class CarsSpider < Kimurai::Base
         end
         item[:stock_type].insert(7, b.css('dd').children[14].text.strip)
 
-        Car.where(item).first_or_create
+        CarsSpider.where(item).first_or_create
       end
   
         

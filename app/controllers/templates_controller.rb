@@ -69,7 +69,6 @@ class TemplatesController < ApplicationController
   end
 
   def search
-    debugger
     @parameter = params[:search] 
     if @parameter.blank? && params[:provider1].present? && params[:provider2].present?
       @provider = [params[:provider1],params[:provider2]].map(&:downcase)
@@ -82,39 +81,30 @@ class TemplatesController < ApplicationController
         @g = User.where(provider: @provider)
 
       elsif @parameter.blank? && params[:provider1].present?
-      debugger
       @a = User.where(provider: params[:provider1].downcase)
 
     elsif @parameter.blank?  && params[:provider2].present?
-      debugger
       @b = User.where(provider: params[:provider2].downcase)
 
     elsif  @parameter.blank?  && params[:provider3].present?
-      debugger
       @c = User.where(provider: params[:provider3].downcase)
 
     elsif params[:provider1].present? && params[:provider2].present?
-      debugger
       @provider = [params[:provider1],params[:provider2]].map(&:downcase)
 
     elsif params[:provider1].present? && params[:provider3].present?
-      debugger
       @provider = [params[:provider1],params[:provider3]].map(&:downcase)
 
     elsif params[:provider2].present? && params[:provider3].present?
-      debugger
       @provider = [params[:provider2],params[:provider3]].map(&:downcase)
 
     elsif params[:provider2].present?
-      debugger
       @provider = (params[:provider2]).downcase
 
     elsif params[:provider3].present?
-      debugger
       @provider = (params[:provider3]).downcase
 
     elsif  params[:provider1].present?
-      debugger
       @provider = (params[:provider1]).downcase          
     else
       @provider = nil
@@ -132,18 +122,12 @@ class TemplatesController < ApplicationController
           @results = @g
             
     elsif @provider.present? && @parameter.present?
-      debugger
       @results = User.where(name: @parameter, provider: @provider)
     elsif i || j || k ||  params[:provider1].present? || params[:provider2].present? || params[:provider3].present?
-      debugger
-      # @results = @e if i 
-      # @results = @f if j
-      # @results = @g if k
       @results = @a if  params[:provider1].present?
       @results = @b if  params[:provider2].present?
       @results = @c if  params[:provider3].present?
     else
-      debugger
       @results = User.all
     end
 # a = User.where(name: @parameter, provider: ["spotify","linkedin"])

@@ -83,9 +83,6 @@
 #   database: spotify3_production
 #   username: spotify3
 #   password: <%= ENV['SPOTIFY3_DATABASE_PASSWORD'] %>
-
-
-
 default: &default
   adapter: postgresql
   host: localhost
