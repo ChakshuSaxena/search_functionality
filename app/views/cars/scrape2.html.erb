@@ -1,0 +1,40 @@
+<%= link_to 'Download new Scraped data', scrape2_cars_path(format: "csv") %> <br>
+
+<p id ="notice"><%notice %></p>
+<p id ="alert"><%alert %></p>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Cars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Sub Title</th>
+      <th>Stock Type</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.title %></td>
+        <td><%= car.sub_title %></td>
+        <td><%= car.stock_type %></td>
+
+        <td><%= link_to 'Show', car %></td>
+        <td><%= link_to 'Edit', edit_car_path(car) %></td>
+        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Car', new_car_path %>
+
+<%= link_to 'Go Back', root_path %>

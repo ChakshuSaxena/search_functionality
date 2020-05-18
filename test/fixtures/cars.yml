@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  stock_type: MyString
+  exterior_color: MyString
+  interior_color: MyString
+  transmission: MyString
+  drivetrain: MyString
+  price: 1
+  miles: 1
+
+two:
+  title: MyString
+  stock_type: MyString
+  exterior_color: MyString
+  interior_color: MyString
+  transmission: MyString
+  drivetrain: MyString
+  price: 1
+  miles: 1

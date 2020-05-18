@@ -1,0 +1,29 @@
+<div style= "padding-left: 155px;">
+  <h1>Search Result</h1>
+
+  <table>
+    <thead>
+      <tr >
+        <th style= " padding-right: 21px">Id</th>
+        <th style= " padding-right: 85px">Name</th>
+        <th style= " padding-right: 100px">Email</th>
+        <th style= " padding-left: 30px">Provider</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @results.each do |result| %> 
+        <tr>
+          <td><%= result.id %></td> &nbsp
+          <td><%= result.name%></td>
+          <td><%= result.email %></td>
+          <td style= " padding-left: 30px"><%= result.provider %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <br>
+      <%= link_to 'Go Back', root_path %>
+</div>

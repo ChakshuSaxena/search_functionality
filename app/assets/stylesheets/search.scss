@@ -1,0 +1,46 @@
+#nav{
+  background-color: blue;
+}
+#ul{
+  list-style: none;
+  margin-top: 13px;
+}
+.nav-item{
+  color: white;
+  text-decoration-color: blue;
+}
+
+#fb{
+    float: right;
+    right: 23px;
+    position: absolute;
+    margin-top: 1px;
+}
+#search{
+    width: 510px;
+    margin-top: 2px;
+}
+
+#seacrch_icon{
+  margin-top: -18px;
+}
+
+.filter{
+    margin-top: -20px;
+    background-color: lightblue;
+    width: 171px;
+}
+
+.scrap_buttons
+{
+    float: right;
+    right: 80px;
+    position: absolute;
+    margin-top: -225px;
+}
+
+.vertical_line{
+  border-right: 2px solid blue; 
+  height: 200px; 
+  width: 173px;
+}

@@ -1,0 +1,104 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#nav{
+  background-color: blue;
+}
+#ul{
+  list-style: none;
+  margin-top: 13px;
+}
+.nav-item{
+  color: white;
+  text-decoration-color: blue;
+}
+
+#fb{
+    float: right;
+    right: 23px;
+    position: absolute;
+    margin-top: 1px;
+}
+#spotify{
+    float: right;
+    right: 283px;
+    position: absolute;
+    margin-top: 1px;
+}
+
+#linkedin{
+      float: right;
+    right: 156px;
+    position: absolute;
+    margin-top: 1px;
+}
+#search{
+    width: 510px;
+    margin-top: 2px;
+    margin-left: 200px;
+}
+
+#seacrch_icon{
+  margin-top: -18px;
+}
+
+.filter{
+    margin-top: 55px;
+    background-color: #D3D3D3;
+    width: 136px;
+    margin-top: 44px;
+    left: -236px;
+    height: 613px;
+    margin-left: -56px;
+    float: right;
+}
+
+.scrap_buttons
+{
+    float: right;
+    right: 0px;
+    position: absolute;
+    margin-top: -20px;
+    width: 136px;
+    padding-left: 50px;
+    padding-right: -6px;
+    height: 613px;
+    background-color: #D3D3D3;
+    background-color: #D3D3D3;
+    width: 169px;
+    height: 613px;
+}
+
+.vertical_line{
+  border-right: 2px solid blue; 
+  height: 200px; 
+  width: 173px;
+}
+.row{
+      float: right;
+    position: absolute;
+    margin-top: 1px;
+}
+.welcome_text{
+    margin: 299px;
+    position: absolute;
+    margin-left: 375px;
+    color: darkblue;
+}
+
