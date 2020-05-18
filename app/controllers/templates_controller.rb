@@ -70,7 +70,9 @@ class TemplatesController < ApplicationController
 
   def search
     @parameter = params[:search] 
-    if @parameter.blank? && params[:provider1].present? && params[:provider2].present?
+    if @parameter.blank? && !params[:provider1].present? && !params[:provider2].present? && !params[:provider3].present?
+      redirect_to(root_path, alert: "Empty field!") and return
+    elsif @parameter.blank? && params[:provider1].present? && params[:provider2].present?
       @provider = [params[:provider1],params[:provider2]].map(&:downcase)
       @e = User.where(provider: @provider)
     elsif @parameter.blank? && params[:provider1].present? && params[:provider3].present?
