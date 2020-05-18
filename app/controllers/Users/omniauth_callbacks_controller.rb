@@ -3,7 +3,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
-      debugger
       sign_in_and_redirect @user, :event => :authentication
       set_flash_message(:notice, :success, :kind => "spotify") if is_navigational_format?
     else
@@ -13,11 +12,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def linkedin
-    debugger
     @user = User.from_omniauth(request.env["omniauth.auth"])
 
     if @user.persisted?
-      debugger
+      
       sign_in_and_redirect @user, :event => :authentication
       set_flash_message(:notice, :success, :kind => "linkedin") if is_navigational_format?
     else

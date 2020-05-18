@@ -157,7 +157,6 @@ class TemplatesController < ApplicationController
     end
 
     def user_params
-      debugger
       params.require(:user).permit(:name, :email, :provider)
     end
 

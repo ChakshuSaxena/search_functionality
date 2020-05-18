@@ -27,7 +27,6 @@ class CarsController < ApplicationController
   end
 
   def scrape
-    debugger
     @cars = Car.all
     url = 'https://www.autoscout24.com/lst?sort=price&desc=0&offer=N&fuel=2%2C3%2CE&ustate=N%2CU&size=20&page=1&atype=C&'
     response = CarsSpider.process(url)
@@ -42,19 +41,13 @@ class CarsController < ApplicationController
   end
 
   def scrape2
-    debugger
     @cars = {}
     @cars = Car.all
     url = "https://www.autoscout24.com/offers/kia-niro-ev-high-spirit-leder-glasdach-electric-black-dee85dec-8b87-4f27-9724-701330c4e26a?cldtidx=1&cldtsrc=listPage"
-    debugger
     response1 = CarsSpider.process(url)
-    debugger
     if response1[:status] == :completed && response1[:error].nil?
-      debugger
       puts "hello welcome the world of web scrapping"
       flash.now[:notice] = "Successfully scraped url"
-    else
-      debugger
       flash.now[:alert] = response1[:error]
     end
     rescue StandardError => e
