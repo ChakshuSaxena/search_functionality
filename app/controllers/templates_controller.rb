@@ -127,8 +127,8 @@ class TemplatesController < ApplicationController
       @results = User.where(name: @parameter, provider: @provider)
     elsif @parameter.present? && !@provider.present?
       debugger
-      @results = User.where('lower(name) = ?', @parameter.downcase)  if @parameter.present?      
-    elsif i || j || k ||  params[:provider1].present? || params[:provider2].present? || params[:provider3].present?
+      @results = User.where('lower(name) = ?', @parameter.downcase)       
+    elsif params[:provider1].present? || params[:provider2].present? || params[:provider3].present?
       @results = @a if  params[:provider1].present?
       @results = @b if  params[:provider2].present?
       @results = @c if  params[:provider3].present?
