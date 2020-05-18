@@ -69,7 +69,7 @@ class TemplatesController < ApplicationController
   end
 
   def search
-    @parameter = params[:search] 
+    @parameter = params[:search].downcase
     if @parameter.blank? && !params[:provider1].present? && !params[:provider2].present? && !params[:provider3].present?
       redirect_to(root_path, alert: "Empty field!") and return
     elsif @parameter.blank? && params[:provider1].present? && params[:provider2].present?
