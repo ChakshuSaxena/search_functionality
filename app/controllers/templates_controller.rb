@@ -69,7 +69,7 @@ class TemplatesController < ApplicationController
   end
 
   def search
-    @parameter = params[:search].downcase
+    @parameter = params[:search]
     if @parameter.blank? && !params[:provider1].present? && !params[:provider2].present? && !params[:provider3].present?
       redirect_to(root_path, alert: "Empty field!") and return
     elsif @parameter.blank? && params[:provider1].present? && params[:provider2].present?
@@ -78,11 +78,11 @@ class TemplatesController < ApplicationController
     elsif @parameter.blank? && params[:provider1].present? && params[:provider3].present?
         @provider = [params[:provider1],params[:provider3]].map(&:downcase)
         @f = User.where(provider: @provider)
-      elsif @parameter.blank? && params[:provider2].present? && params[:provider3].present?
+    elsif @parameter.blank? && params[:provider2].present? && params[:provider3].present?
         @provider = [params[:provider2],params[:provider3]].map(&:downcase)
         @g = User.where(provider: @provider)
 
-      elsif @parameter.blank? && params[:provider1].present?
+    elsif @parameter.blank? && params[:provider1].present?
       @a = User.where(provider: params[:provider1].downcase)
 
     elsif @parameter.blank?  && params[:provider2].present?
@@ -116,9 +116,9 @@ class TemplatesController < ApplicationController
       @results = User.all
     elsif @parameter.blank? && params[:provider1].present? && params[:provider2].present?
         @results = @e
-      elsif  @parameter.blank? && params[:provider1].present? && params[:provider3].present?
+    elsif  @parameter.blank? && params[:provider1].present? && params[:provider3].present?
           @results = @f
-        elsif @parameter.blank? && params[:provider2].present? && params[:provider3].present?
+    elsif @parameter.blank? && params[:provider2].present? && params[:provider3].present?
           @results = @g
             
     elsif @provider.present? && @parameter.present?
@@ -126,7 +126,7 @@ class TemplatesController < ApplicationController
     elsif @parameter.present? && !@provider.present?
       debugger
       # @results = User.where(name: @parameter)  
-      @results = User.where('lower(name) = ?', @parameter.downcase)      
+      @results = User.where('lower(name) = ?', params[:search].downcase) if params[:search].present?      
     elsif params[:provider1].present? || params[:provider2].present? || params[:provider3].present?
       @results = @a if  params[:provider1].present?
       @results = @b if  params[:provider2].present?
@@ -134,7 +134,7 @@ class TemplatesController < ApplicationController
     else
       @results = User.all
     end
-# a = User.where(name: @parameter, provider: ["spotify","linkedin"])
+      # a = User.where(name: @parameter, provider: ["spotify","linkedin"])
 
       # debugger
       # @a = User.all.where(provider: params[:provider].downcase)
